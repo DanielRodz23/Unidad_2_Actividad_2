@@ -1,0 +1,28 @@
+﻿@model Unidad_2_Actividad_2.Models.ViewModels.IndexViewModel
+@{
+    Layout = "Layout";
+}
+<section class="nav">
+    <h3>ABC de Razas</h3>
+    <nav>
+        <a href="~/">Todas</a>
+        @foreach (var item in Model.LetraNombres)
+        {
+            <a href="~/@(item.ToLower())">@item.ToUpper()</a>
+        }
+        <a href="~/pais">Listado por país</a>
+    </nav>
+</section>
+<section class="list">
+    <ul>
+        @foreach (var item in Model.ListaRazas)
+        {
+            <li>
+                <a href="~/raza/@(item.Nombre.Replace(" ","-"))">
+                    <img src="~/imgs_perros/@(item.Id)_0.jpg">
+                    @item.Nombre
+                </a>
+            </li>
+        }
+    </ul>
+</section>
